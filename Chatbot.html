@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link href="Chatbot.css" rel="stylesheet">
+    </head>
+    <body>
+<div>
+    <dialog open id="janelaDeTemas">
+<form method="dialog">
+    <section>
+        <p><label for="temas">Temas:</label>
+            <select id="temas" onChange="confirm()">
+                <option value="escolha" selected>Escolha</option>
+                <option value="noticias">Notícias</option>
+                <option value="previsaoDoTempo">Previsão do Tempo</option>
+                <option value="conhecimentosGerais">Conhecimentos Gerais</option>
+            </select>
+        </p>
+    </section>
+</form>
+    </dialog>
+</div>
+<div>
+    <button id="send" type="submit" autofocus form="textoParaEnviar">Enviar</button>
+</div>
+<div>
+    <button id="cancel" type="submit" form="textoParaEnviar">Cancelar</button>
+</div>
+<div style="text-align:center">
+<form id="textoParaEnviar">
+<input type="text" id="inserirTexto" placeholder="Digite Aqui"/>
+<a>Espaço para centralizar input</a>
+</form>
+</div>
+    </body>
+</html>
