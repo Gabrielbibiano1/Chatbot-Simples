@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <link href="Chatbot.css" rel="stylesheet">
+               <link href="Chatbot.css" rel="stylesheet">
     </head>
-    <body>
-<div>
-    <dialog open id="janelaDeTemas">
+    <body id="body">
+<div id="tudo">
+    <dialog open id="janeladetemas">
 <form method="dialog">
     <section>
         <p><label for="temas">Temas:</label>
@@ -19,18 +19,25 @@
     </section>
 </form>
     </dialog>
+<br>
+<table>
+    <tr>
+        <form>
+            <textarea id="mensagemrobot" placeholder="A mensagem do Robô vai aparecer aqui de acordo com o que digitar."></textarea>
+            <textarea type="text" id="mensagemenviada" onkeyup="receberTexto()" placeholder="Sua mensagem aparecerá aqui."></textarea>
+        </form> 
+    </tr><br>
+    <tr>
+        <form id="textoparaenviar">
+                <textarea type="text" id="inserirtexto" placeholder="Digite Aqui" onkeypress="return searchKeyPress(event)"></textarea>
+            </form>
+    </tr><br>
+    <tr>
+        <button id="send" type="submit">Enviar</button>
+        <button id="cancel" type="reset" form="textoparaenviar" onkeypress="keypress()">Cancelar</button>
+    </tr>
+</table>
 </div>
-<div>
-    <button id="send" type="submit" autofocus form="textoParaEnviar">Enviar</button>
-</div>
-<div>
-    <button id="cancel" type="submit" form="textoParaEnviar">Cancelar</button>
-</div>
-<div style="text-align:center">
-<form id="textoParaEnviar">
-<input type="text" id="inserirTexto" placeholder="Digite Aqui"/>
-<a>Espaço para centralizar input</a>
-</form>
-</div>
-    </body>
+<script src="Chatbot.js"></script>
+</body>
 </html>
