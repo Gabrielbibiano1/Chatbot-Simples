@@ -8,13 +8,14 @@ Passos dados:
 - Lista de comandos disponíveis;
 - Botão de enviar funciona ao teclar ENTER;
 - Estilização em CSS;
-- Primeira revisão com base no primeiro capítulo do livro Clean Code;
+- 1ª Revisão com base no primeiro capítulo do livro Clean Code;
+- 2ª Revisão com base no segundo capítulo do Clean Code.
 
 Próximos passos:
 - Verificar a possibilidade de adicionar check-box para abrir novas opções na tela;
 - Melhorar o CSS;
 - Botões de compartilhamento;
-- Nova revisão com base no Clean Code.
+- Novas opções disponíveis para a Section.
  
 
 Estado Atual:
