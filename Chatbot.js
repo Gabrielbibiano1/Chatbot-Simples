@@ -1,11 +1,10 @@
 var buttonSend = document.getElementById("send");
 var buttonCancel = document.getElementById("cancel");
-var comprimentos1 = ["Oi", "Olá", "Hello"];
-var listaDeComandos = ["Oi", "Formação Acadêmica", "Experiências Profissionais", "Objetivos", "Quais ferramentas sabe usar?", "Quais está aprendendo a usar?"];
+var comprimentos = ["Oi", "Olá", "Hello"];
+var listaDeComandos = ["Oi", "Formação Acadêmica", "Experiências Profissionais", "Objetivos", "Quais ferramentas sabe usar?", "Quais ferramentas está aprendendo a usar?"];
 var textoRecebido = document.getElementById("mensagemEnviada").value;
 
-function comandos(){
-    textoRecebido = document.getElementById("mensagemEnviada").value;
+function opcoesDeComandos(){
     if(textoRecebido == "comandos" || textoRecebido == "Comandos"){
           for(let i=0; i<listaDeComandos.length; i++){
             document.getElementById("mensagemRobot").value = 
@@ -14,25 +13,19 @@ function comandos(){
     } return
 }
 
-function write(){
-    comprimentos1random = comprimentos1[Math.floor(Math.random() * comprimentos1.length)];
-    textoRecebido = document.getElementById("mensagemEnviada").value;
+function comprimentosAleatorios(){
+    comprimentosRandomicos = comprimentos[Math.floor(Math.random() * comprimentos.length)];
     if (textoRecebido == "oi" || textoRecebido == "Oi"){
-        document.getElementById("mensagemRobot").value = comprimentos1random;
-    } else if(textoRecebido == "comandos" || textoRecebido == "Comandos"){
-        comandos();
-    }else{
+        document.getElementById("mensagemRobot").value = (comprimentosRandomicos + " Mundo!");
+    } else{
         console.log("Diga algo.")
     }return
 }
 
-function none(){
+function retornaCampoVazio(){
     textoRecebido = document.getElementById("inserirTexto").value;
     document.getElementById("mensagemEnviada").value = textoRecebido;
-    document.getElementById("inserirTexto").innerHTML = "Diga algo.";
-    if(textoRecebido == undefined){
-        textoRecebido = "Diga algo."
-    }
+    document.getElementById("inserirTexto").innerHTML = null;
 }
 
 buttonSend.onclick = function receberTexto(){
@@ -40,13 +33,24 @@ buttonSend.onclick = function receberTexto(){
     document.getElementById("mensagemEnviada").value = textoRecebido;
     document.getElementById("inserirTexto").innerHTML = "inserirTexto"[0].defaultValue;
     if(textoRecebido == "oi" || textoRecebido == "Oi"){
-        write();
+        comprimentosAleatorios();
     }else if(textoRecebido == "comandos" || textoRecebido == "Comandos"){
-        write();
-    } else if(textoRecebido == "formação acadêmica" || textoRecebido == "Formação Acadêmica"){
-        document.getElementById("mensagemRobot").value = ("Pós-graduação em Gestão Pública: 03/2021-08/2021" + "\n" + "Bacharel em Administração: 01/2013-12/2019");
+        opcoesDeComandos();
+    } else if(textoRecebido == "Formação Acadêmica" || textoRecebido == "formação acadêmica" || textoRecebido == "Formação acadêmica"){
+        document.getElementById("mensagemRobot").value = ("-Pós-graduação em Gestão Pública;" + "\n" + "-Bacharel em Administração;" + "\n" + "-Técnico de Assistente de Recursos Humanos;" + "\n" + "-Técnico de Administração;" + "\n" + "-Técnico de informática.");
+    } else if(textoRecebido == "Experiências Profissionais" || textoRecebido == "experiências profissionais" || textoRecebido == "Experiências profissionais"){
+        document.getElementById("mensagemRobot").value = ("-Digitador (Licitação);" + "\n" + "-Digitador (RH);" + "\n" + "-Chefe de Seção de Protocolo e Arquivo;" + "\n" + "-Assistente Administrativo;" + "\n" + "-Auxiliar Administrativo.")
+    } else if(textoRecebido == "Objetivos" || textoRecebido == "objetivos"){
+       document.getElementById("mensagemRobot").value = ("Seguir carreira de Frontend.");
+    } else if(textoRecebido == "Quais ferramentas sabe usar?" || textoRecebido == "quais ferramentas sabe usar?"){
+       document.getElementById("mensagemRobot").value = ("-HTML;" + "\n" + "-CSS;" + "\n" + "-Javascript.");
+    } else if(textoRecebido == "Quais ferramentas está aprendendo a usar?" || textoRecebido == "quais ferramentas está aprendendo a usar?"){
+        document.getElementById("mensagemRobot").value = ("-Javascript.");
+    } else if(textoRecebido == ""){
+        document.getElementById("mensagemEnviada").value = "Diga 'comandos' para saber as opções disponíveis.";
+        document.getElementById("inserirTexto").value = null;
     } else {
-        none();
+        retornaCampoVazio();
     } return
 }
 
@@ -60,17 +64,17 @@ function searchKeyPress(e){
 }
 
 buttonCancel.onclick = function limparTexto(){
-    if (document.getElementById("textoParaEnviar").value === undefined){
-        var oldValue = document.getElementById("textoParaEnviar").value;
-            var newValue;
-            if (!oldValue) {
-                newValue = "Diga algo.";
-                newValue = document.getElementById("mensagemEnviada").value;
+    if (document.getElementById("textoParaEnviar").value === ""){
+        var valorAntigo = document.getElementById("textoParaEnviar").value;
+            var novoValor;
+            if (!valorAntigo) {
+                novoValor = "Diga algo.";
+                novoValor = document.getElementById("mensagemEnviada").value;
             } else {
-                newValue = oldValue;
+                novoValor = valorAntigo;
             }
     } else{
-        none();
+        retornaCampoVazio();
     }
 }
 
