@@ -13,7 +13,7 @@ function opcoesDeComandos(){
     } return
 }
 
-function comprimentosAleatorios(){
+function cumprimentosAleatorios(){
     cumprimentosRandomicos = cumprimentos[Math.floor(Math.random() * cumprimentos.length)];
     if (textoRecebido == "oi" || textoRecebido == "Oi"){
         document.getElementById("mensagemRobot").value = (cumprimentosRandomicos + " Mundo!");
@@ -32,7 +32,7 @@ buttonSend.onclick = function receberTexto(){
     document.getElementById("mensagemEnviada").value = textoRecebido;
     document.getElementById("inserirTexto").innerHTML = "inserirTexto"[0].defaultValue;
     if(textoRecebido == "oi" || textoRecebido == "Oi"){
-        comprimentosAleatorios();
+        cumprimentosAleatorios();
     }else if(textoRecebido == "comandos" || textoRecebido == "Comandos"){
         opcoesDeComandos();
     } else if(textoRecebido == 1){
@@ -45,9 +45,6 @@ buttonSend.onclick = function receberTexto(){
        document.getElementById("mensagemRobot").value = ("-HTML;" + "\n" + "-CSS;" + "\n" + "-Javascript.");
     } else if(textoRecebido == 5){
         document.getElementById("mensagemRobot").value = ("-Javascript.");
-    } else if(textoRecebido == ""){
-        document.getElementById("mensagemEnviada").value = "Diga 'comandos' para saber as opções disponíveis.";
-        document.getElementById("inserirTexto").value = null;
     } else {
         retornaCampoVazio();
     } return
@@ -85,6 +82,8 @@ function confirm(){
         var previsao = '<img src="https://www.tempo.com/wimages/foto5db3525222e522cb816233b9af68832b.png">';
         document.getElementById("informacoesDasOpcoes").innerHTML = previsao;
     }else if (value == "vendaDeEspaço1"){
+        var github = '<img src="https://github.com/Gabrielbibiano1/Chatbot-Simples">';
+        document.getElementById("informacoesDasOpcoes").innerHTML = github;
             console.log("Funcionou!");
     }else if (value == "vendaDeEspaço2"){
             console.log("Funcionou!");
@@ -94,3 +93,15 @@ function confirm(){
     } return
 }
 
+function ocultaTextArea(){
+    if(document.getElementById('checkbox').checked){
+        document.getElementById('mensagemEnviada').style.display = 'none';
+    } else {
+        document.getElementById('mensagemEnviada').style.display = 'list-item';
+    } return
+}
+
+function scrollToBottom() {
+    var textArea = document.getElementById('mensagemRobot');
+    textArea.scrollTop = textArea.scrollHeight;
+}

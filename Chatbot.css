@@ -3,6 +3,7 @@
     height: 100vh;
     align-items: center;
     text-align: center;
+    flex-direction: row;
 }
 #janelaDeTemas{
     border-radius: 15px;
@@ -34,6 +35,9 @@
     border-color: blue;
     color: white;
 }
+#areasDeTexto{
+    display: inline-block;
+}
 #mensagemRobot{
     border: 5px solid green;
     border-radius: 15px;
@@ -45,8 +49,10 @@
     resize:none;
     width: 270px;
     height: 200px;
+    max-height: 200px;
     margin-top: 80px;
     padding: 10px;
+    float: left;
 }
 #mensagemEnviada{
     border: 5px solid green;
@@ -60,9 +66,52 @@
     resize:none;
     width: 270px;
     height: 200px;
+    max-height: 200px;
+    margin-top: 80px;
     padding: 10px;
+    float: left;
 }
 #informacoesDasOpcoes{
     border:2px solid green;
     margin-top: 10px;
 }
+input[type=checkbox] {
+    position: relative;
+      cursor: pointer;
+}
+input[type=checkbox]:before {
+    content: "";
+    display: block;
+    position: absolute;
+    width: 16px;
+    height: 16px;
+    top: 0;
+    left: 0;
+    background-color:goldenrod;
+}
+input[type=checkbox]:checked:before {
+    content: "";
+    display: block;
+    position: absolute;
+    width: 16px;
+    height: 16px;
+    top: 0;
+    left: 0;
+    background-color:#1E80EF;
+}
+input[type=checkbox]:checked:after {
+    content: "";
+    display: block;
+    width: 3px;
+    height: 7px;
+    border: solid black;
+    border-width: 0 2px 2px 0;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+    position: absolute;
+    top: 2px;
+    left: 6px;
+}
+
+

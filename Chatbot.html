@@ -1,54 +1,56 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-               <link href="Chatbot.css" rel="stylesheet">            
-    </head>
-    <body id="body">
-                    <div contentEditable="false" id="informacoesDasOpcoes">
-                    </div>
-        <div>
-            <dialog open id="janelaDeTemas">
-        <form method="dialog">
-            <section>
-                <p><label for="temas">Temas:</label>
-                    <select id="temas" onChange="confirm()">
-                        <option value="escolha" selected>Escolha</option>
-                        <option value="previsaoDoTempo">Previsão do Tempo</option>
-                        <option value="vendaDeEspaço1">Espaço1</option>
-                        <option value="vendaDeEspaço2">Espaço2</option>
-                    </select>
-                </p>
-            </section>
-        </form>
-            </dialog>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link href="Chatbot.css" rel="stylesheet">
+</head>
+
+<body id="body">
+    <div contentEditable="false" id="informacoesDasOpcoes">
+    </div>
+    <div>
+        <dialog open id="janelaDeTemas">
+            <form method="dialog">
+                <section>
+                    <p><label for="temas">Temas:</label>
+                        <select id="temas" onChange="confirm()">
+                            <option value="escolha" selected>Escolha</option>
+                            <option value="previsaoDoTempo">Previsão do Tempo</option>
+                            <option value="vendaDeEspaço1">Espaço1</option>
+                            <option value="vendaDeEspaço2">Espaço2</option>
+                        </select>
+                    </p>
+                </section>
+            </form>
+        </dialog>
+    </div>
+    <div>
+        <div id="areasDeTexto">
+            <form>
+                <textarea id="mensagemRobot" readonly
+                    placeholder="A mensagem do Robô vai aparecer aqui de acordo com o que digitar. Para saber os comandos diga: comandos."></textarea>
+                <textarea type="text" id="mensagemEnviada" readonly
+                    placeholder="Sua mensagem aparecerá aqui."></textarea>
+            </form>
         </div>
-            <table width="100%">
-                <tr>
-                    <thead>
-                        <th>
-                            <form>
-                                <textarea id="mensagemRobot" readonly placeholder="A mensagem do Robô vai aparecer aqui de acordo com o que digitar. Para saber os comandos diga: comandos."></textarea>           
-                                <textarea type="text" id="mensagemEnviada" readonly placeholder="Sua mensagem aparecerá aqui."></textarea>
-                            </form>
-                        </th>
-                    </thead>
-                    <tbody>
-                        <td>
-                            <form id="textoParaEnviar">
-                                <textarea type="text" id="inserirTexto" placeholder="Digite Aqui" onkeypress="return searchKeyPress(event)"></textarea>
-                            </form>
-                        </td>
-                            
-                    </tbody>
-                </tr>
-                <tr>
-                    <td>
-                        <button id="send" type="submit">Enviar</button>
-                        <button id="cancel" type="reset" form="textoParaEnviar" onkeypress="keypress()">Cancelar</button>
-                    </td>
-                </tr>
-                </table>                      
-        <script src="Chatbot.js"></script>
+        <div>
+            <form id="textoParaEnviar">
+                <textarea type="text" id="inserirTexto" placeholder="Digite Aqui"
+                    onkeypress="return searchKeyPress(event)"></textarea>
+            </form>
+        </div>
+        <div id="botoes">
+            <button id="send" type="submit">Enviar</button>
+            <button id="cancel" type="reset" form="textoParaEnviar" onkeypress="keypress()">Cancelar</button>
+        </div>
+        <div>
+            <input type="checkbox" id="checkbox" onclick="ocultaTextArea()" />Tirar campo direito
+        </div>
+    </div>
+    <script src="Chatbot.js"></script>
 </body>
+
 </html>
