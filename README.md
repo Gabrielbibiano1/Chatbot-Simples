@@ -9,7 +9,9 @@ Passos dados:
 - Botão de enviar funciona ao teclar ENTER;
 - Estilização em CSS;
 - 1ª Revisão com base no primeiro capítulo do livro Clean Code;
-- 2ª Revisão com base no segundo capítulo do Clean Code.
+- 2ª Revisão com base no segundo capítulo do Clean Code;
+- Checkbox que oculta as mensagens enviadas.
+- Melhorar o CSS;
 
 Próximos passos:
 - Verificar a possibilidade de adicionar check-box para abrir novas opções na tela;
