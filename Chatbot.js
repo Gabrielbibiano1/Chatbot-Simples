@@ -15,7 +15,7 @@ function opcoesDeComandos(){
 
 function cumprimentosAleatorios(){
     cumprimentosRandomicos = cumprimentos[Math.floor(Math.random() * cumprimentos.length)];
-    if (textoRecebido == "oi" || textoRecebido == "Oi"){
+    if (textoRecebido == "oi" || textoRecebido == "Oi" || textoRecebido == "OI"){
         document.getElementById("mensagemRobot").value = (cumprimentosRandomicos + " Mundo!");
     } else{
         console.log("Diga algo.")
@@ -71,7 +71,7 @@ buttonCancel.onclick = function limparTexto(){
             }
     } else{
         retornaCampoVazio();
-    }
+    }return
 }
 
 function confirm(){
@@ -81,14 +81,20 @@ function confirm(){
     if (value == "previsaoDoTempo"){
         var previsao = '<img src="https://www.tempo.com/wimages/foto5db3525222e522cb816233b9af68832b.png">';
         document.getElementById("informacoesDasOpcoes").innerHTML = previsao;
-    }else if (value == "vendaDeEspaço1"){
-        var github = '<img src="https://github.com/Gabrielbibiano1/Chatbot-Simples">';
+    }else if (value == "meuPerfilGit"){
+        var github = '<a href=\"https://github.com/Gabrielbibiano1/Chatbot-Simples\"><img src="https://img.icons8.com/external-flaticons-flat-flat-icons/344/external-front-end-no-code-flaticons-flat-flat-icons-2.png" width="70" height="70"></a>';
         document.getElementById("informacoesDasOpcoes").innerHTML = github;
-            console.log("Funcionou!");
-    }else if (value == "vendaDeEspaço2"){
-            console.log("Funcionou!");
+      /*  if(document.getElementById('checkbox').checked){
+            document.location.reload(true);
+        }*/
+    }else if (value == "meuPerfilLinkedin"){
+        var linkedin = '<a href=\"https://www.linkedin.com/in/gabriel-bibiano-santos/\"><img src="https://img.icons8.com/nolan/344/linkedin-circled.png" width="70" height="70"></a>';
+        document.getElementById("informacoesDasOpcoes").innerHTML = linkedin;
+     /*   if(document.getElementById('checkbox').checked){
+            document.location.reload(true);
+        }*/
     }else {
-        var semConteudo = "";
+        var semConteudo = null;
         document.getElementById("informacoesDasOpcoes").innerHTML = semConteudo;
     } return
 }
