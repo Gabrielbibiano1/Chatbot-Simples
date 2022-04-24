@@ -19,8 +19,8 @@ function seFoiDitoMaisDeUmaVez(){
 
 function opcoesDeComandos(){
     if(textoRecebido == "comandos" || textoRecebido == "Comandos"){
-        document.getElementById("mensagemRobot").value += ("Diga algum dos números abaixo:" + "\n");
         evitaRespostaDuplicadaDoRobo();
+        document.getElementById("mensagemRobot").value += ("Diga algum dos números abaixo:" + "\n");
         seFoiDitoMaisDeUmaVez();
           for(let i=0; i<listaDeNumerosDosComandos.length; i++){
             for(let j=0; j<listaDeComandos.length; j++){
@@ -28,7 +28,7 @@ function opcoesDeComandos(){
             document.getElementById("mensagemRobot").value += (listaDeNumerosDosComandos[i] + listaDeComandos[i] + "\n");      
         }
     } return
-}
+} evitaRespostaDuplicadaDoRobo();
 
 function cumprimentosAleatorios(){
     cumprimentosRandomicos = cumprimentos[Math.floor(Math.random() * cumprimentos.length)];
@@ -53,6 +53,7 @@ buttonSend.onclick = function receberTexto(){
         opcoesDeComandos();
     } else if(textoRecebido == 1){
         retornaCampoVazio();
+        evitaRespostaDuplicadaDoRobo();
         for(i=0; i<opcao1.length; i++){
             document.getElementById("mensagemRobot").value += (opcao1[i] + "\n");
         }
@@ -106,9 +107,12 @@ buttonCancel.onclick = function limparTexto(){
 }
 
 function evitaRespostaDuplicadaDoRobo(){
-    if(document.getElementById("mensagemEnviada").value == "comandos" || document.getElementById("mensagemEnviada").value == "Comandos"){
-        document.getElementById("mensagemRobot").value = null;
-    }
+     var duplicatas = ["comandos", "Comandos", "1", "2", "3", "4", "5"];
+    for(i=0; i<duplicatas.length; i++){
+        }
+    if(document.getElementById("mensagemEnviada").value == duplicatas[i]){
+    } document.getElementById("mensagemRobot").value = null;
+
 }
 
 function confirm(){
