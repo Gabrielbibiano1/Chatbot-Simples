@@ -47,7 +47,16 @@
             <button id="cancel" type="reset" form="textoParaEnviar" onkeypress="keypress()">Cancelar</button>
         </div>
         <div>
-            <input type="checkbox" id="checkbox" onclick="ocultaTextArea()" />Tirar campo direito
+            <form action="">
+                <input type="text" name="palavra" pattern="^((?!PQP).)*$">
+                <input type="submit">
+              </form>
+        </div>
+        <div>
+            <input type="checkbox" id="checkbox" onclick="ocultaTextArea()" /><label for="ocultarCampoDireito"> Ocultar campo direito</label>
+        </div>
+        <div>
+            <input type="checkbox" id="checkboxAtualiza" onclick="atualizaPagina()" /><label for="atualizaPagina"> Atualiza Página</label>
         </div>
     </div>
     <script src="Chatbot.js"></script>

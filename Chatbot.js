@@ -1,14 +1,31 @@
 var buttonSend = document.getElementById("send");
 var buttonCancel = document.getElementById("cancel");
-var cumprimentos = ["Oi", "Olá", "Hello"];
-var listaDeComandos = ["Formação Acadêmica", "Experiências Profissionais", "Objetivos", "Quais ferramentas sabe usar?", "Quais ferramentas está aprendendo a usar?"];
 var textoRecebido = document.getElementById("mensagemEnviada").value;
+var cumprimentos = ["Oi", "Olá", "Hello"];
+var listaDeNumerosDosComandos = ["1- ", "2- ", "3- ", "4- ", "5- "];
+var listaDeComandos = ["Formação Acadêmica", "Experiências Profissionais", "Objetivos", "Quais ferramentas sabe usar?", "Quais ferramentas está aprendendo a usar?"];
+var opcao1 = ["-Pós-graduação em Gestão Pública;", "-Bacharel em Administração;", "-Técnico de Assistente de Recursos Humanos;", "-Técnico de Administração;", "-Técnico de informática."];
+var opcao2 = ["-Digitador (Licitação);", "-Digitador (RH);", "-Chefe de Seção de Protocolo e Arquivo;", "-Assistente Administrativo;", "-Auxiliar Administrativo."];
+var opcao3 = ["Seguir carreira de Frontend."];
+var opcao4 = ["-HTML;", "-CSS;", "-Javascript."];
+var opcao5 = ["-Javascript."];
+
+
+function seFoiDitoMaisDeUmaVez(){
+    textoRecebido = "comandos";
+    textoRecebido.repeat(1);
+    console.log(textoRecebido);
+}
 
 function opcoesDeComandos(){
     if(textoRecebido == "comandos" || textoRecebido == "Comandos"){
-          for(let i=0; i<listaDeComandos.length; i++){
-            document.getElementById("mensagemRobot").value = 
-            ("Digite algum dos números abaixo:" + "\n" + "1- " + listaDeComandos[0] + ";" + "\n" + "2- " + listaDeComandos[1] + ";" + "\n" + "3- " + listaDeComandos[2] + ";" + "\n" + "4- " + listaDeComandos[3] + ";" + "\n" + "5- " + listaDeComandos[4] + ";" + "\n\n" + "Ou diga alguma das palavras abaixo: " + "\n" + "-oi" + ";");
+        document.getElementById("mensagemRobot").value += ("Diga algum dos números abaixo:" + "\n");
+        evitaRespostaDuplicadaDoRobo();
+        seFoiDitoMaisDeUmaVez();
+          for(let i=0; i<listaDeNumerosDosComandos.length; i++){
+            for(let j=0; j<listaDeComandos.length; j++){
+            }
+            document.getElementById("mensagemRobot").value += (listaDeNumerosDosComandos[i] + listaDeComandos[i] + "\n");      
         }
     } return
 }
@@ -16,7 +33,7 @@ function opcoesDeComandos(){
 function cumprimentosAleatorios(){
     cumprimentosRandomicos = cumprimentos[Math.floor(Math.random() * cumprimentos.length)];
     if (textoRecebido == "oi" || textoRecebido == "Oi" || textoRecebido == "OI"){
-        document.getElementById("mensagemRobot").value = (cumprimentosRandomicos + " Mundo!");
+        document.getElementById("mensagemRobot").value = (cumprimentosRandomicos + " Mundo!" + "\n");
     } else{
         console.log("Diga algo.")
     }return
@@ -24,7 +41,6 @@ function cumprimentosAleatorios(){
 
 function retornaCampoVazio(){
     document.getElementById("inserirTexto").innerHTML = null;
-    document.getElementById("mensagemEnviada").value = null;
 }
 
 buttonSend.onclick = function receberTexto(){
@@ -36,15 +52,30 @@ buttonSend.onclick = function receberTexto(){
     }else if(textoRecebido == "comandos" || textoRecebido == "Comandos"){
         opcoesDeComandos();
     } else if(textoRecebido == 1){
-        document.getElementById("mensagemRobot").value = ("-Pós-graduação em Gestão Pública;" + "\n" + "-Bacharel em Administração;" + "\n" + "-Técnico de Assistente de Recursos Humanos;" + "\n" + "-Técnico de Administração;" + "\n" + "-Técnico de informática.");
+        retornaCampoVazio();
+        for(i=0; i<opcao1.length; i++){
+            document.getElementById("mensagemRobot").value += (opcao1[i] + "\n");
+        }
     } else if(textoRecebido == 2){
-        document.getElementById("mensagemRobot").value = ("-Digitador (Licitação);" + "\n" + "-Digitador (RH);" + "\n" + "-Chefe de Seção de Protocolo e Arquivo;" + "\n" + "-Assistente Administrativo;" + "\n" + "-Auxiliar Administrativo.")
+        retornaCampoVazio();
+        for(i=0; i<opcao2.length; i++){
+            document.getElementById("mensagemRobot").value += (opcao2[i] + "\n");
+        }
     } else if(textoRecebido == 3){
-       document.getElementById("mensagemRobot").value = ("Seguir carreira de Frontend.");
+        retornaCampoVazio();
+        for(i=0; i<opcao3.length; i++){
+            document.getElementById("mensagemRobot").value += (opcao3[i] + "\n");
+        }
     } else if(textoRecebido == 4){
-       document.getElementById("mensagemRobot").value = ("-HTML;" + "\n" + "-CSS;" + "\n" + "-Javascript.");
-    } else if(textoRecebido == 5){
-        document.getElementById("mensagemRobot").value = ("-Javascript.");
+        retornaCampoVazio();
+        for(i=0; i<opcao4.length; i++){
+            document.getElementById("mensagemRobot").value += (opcao4[i] + "\n");
+        }
+     } else if(textoRecebido == 5){
+        retornaCampoVazio();
+        for(i=0; i<opcao5.length; i++){
+            document.getElementById("mensagemRobot").value += (opcao5[i] + "\n");
+        }
     } else {
         retornaCampoVazio();
     } return
@@ -74,6 +105,12 @@ buttonCancel.onclick = function limparTexto(){
     }return
 }
 
+function evitaRespostaDuplicadaDoRobo(){
+    if(document.getElementById("mensagemEnviada").value == "comandos" || document.getElementById("mensagemEnviada").value == "Comandos"){
+        document.getElementById("mensagemRobot").value = null;
+    }
+}
+
 function confirm(){
     let select = document.querySelector("#temas");
     let optionsValue = select.options[select.selectedIndex];
@@ -84,15 +121,9 @@ function confirm(){
     }else if (value == "meuPerfilGit"){
         var github = '<a href=\"https://github.com/Gabrielbibiano1/Chatbot-Simples\"><img src="https://img.icons8.com/external-flaticons-flat-flat-icons/344/external-front-end-no-code-flaticons-flat-flat-icons-2.png" width="70" height="70"></a>';
         document.getElementById("informacoesDasOpcoes").innerHTML = github;
-      /*  if(document.getElementById('checkbox').checked){
-            document.location.reload(true);
-        }*/
     }else if (value == "meuPerfilLinkedin"){
         var linkedin = '<a href=\"https://www.linkedin.com/in/gabriel-bibiano-santos/\"><img src="https://img.icons8.com/nolan/344/linkedin-circled.png" width="70" height="70"></a>';
         document.getElementById("informacoesDasOpcoes").innerHTML = linkedin;
-     /*   if(document.getElementById('checkbox').checked){
-            document.location.reload(true);
-        }*/
     }else {
         var semConteudo = null;
         document.getElementById("informacoesDasOpcoes").innerHTML = semConteudo;
@@ -111,3 +142,12 @@ function scrollToBottom() {
     var textArea = document.getElementById('mensagemRobot');
     textArea.scrollTop = textArea.scrollHeight;
 }
+
+function atualizaPagina(){
+    checkboxAtualiza = document.getElementById('checkboxAtualiza')
+    if(checkboxAtualiza.checked){
+        document.location.reload(true);
+    }
+}atualizaPagina()
+
+      
