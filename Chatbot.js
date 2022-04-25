@@ -59,21 +59,25 @@ buttonSend.onclick = function receberTexto(){
         }
     } else if(textoRecebido == 2){
         retornaCampoVazio();
+        evitaRespostaDuplicadaDoRobo();
         for(i=0; i<opcao2.length; i++){
             document.getElementById("mensagemRobot").value += (opcao2[i] + "\n");
         }
     } else if(textoRecebido == 3){
         retornaCampoVazio();
+        evitaRespostaDuplicadaDoRobo();
         for(i=0; i<opcao3.length; i++){
             document.getElementById("mensagemRobot").value += (opcao3[i] + "\n");
         }
     } else if(textoRecebido == 4){
         retornaCampoVazio();
+        evitaRespostaDuplicadaDoRobo();
         for(i=0; i<opcao4.length; i++){
             document.getElementById("mensagemRobot").value += (opcao4[i] + "\n");
         }
      } else if(textoRecebido == 5){
         retornaCampoVazio();
+        evitaRespostaDuplicadaDoRobo();
         for(i=0; i<opcao5.length; i++){
             document.getElementById("mensagemRobot").value += (opcao5[i] + "\n");
         }
