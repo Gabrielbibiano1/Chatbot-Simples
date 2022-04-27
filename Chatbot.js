@@ -10,7 +10,6 @@ var opcao3 = ["Seguir carreira de Frontend."];
 var opcao4 = ["-HTML;", "-CSS;", "-Javascript."];
 var opcao5 = ["-Javascript."];
 
-
 function seFoiDitoMaisDeUmaVez(){
     textoRecebido = "comandos";
     textoRecebido.repeat(1);
@@ -33,7 +32,7 @@ function opcoesDeComandos(){
 function cumprimentosAleatorios(){
     cumprimentosRandomicos = cumprimentos[Math.floor(Math.random() * cumprimentos.length)];
     if (textoRecebido == "oi" || textoRecebido == "Oi" || textoRecebido == "OI"){
-        document.getElementById("mensagemRobot").value = (cumprimentosRandomicos + " Mundo!" + "\n");
+        document.getElementById("mensagemRobot").value = (cumprimentosRandomicos);
     } else{
         console.log("Diga algo.")
     }return
@@ -115,8 +114,8 @@ function evitaRespostaDuplicadaDoRobo(){
     for(i=0; i<duplicatas.length; i++){
         }
     if(document.getElementById("mensagemEnviada").value == duplicatas[i]){
-    } document.getElementById("mensagemRobot").value = null;
-
+    }
+    document.getElementById("mensagemRobot").value = null;
 }
 
 function confirm(){
@@ -157,5 +156,6 @@ function atualizaPagina(){
         document.location.reload(true);
     }
 }atualizaPagina()
+
 
       
