@@ -25,7 +25,7 @@ function opcoesDeComandos(){
             for(let j=0; j<listaDeComandos.length; j++){
             }
             document.getElementById("mensagemRobot").value += (listaDeNumerosDosComandos[i] + listaDeComandos[i] + "\n");      
-        }
+        }document.getElementById("mensagemRobot").value += ("\n" + "Ou diga alguma das palavras abaixo:" + "\n" + "- Oi;");
     } return
 } evitaRespostaDuplicadaDoRobo();
 
