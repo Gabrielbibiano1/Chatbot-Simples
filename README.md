@@ -10,11 +10,13 @@ Passos dados:
 - Estilização em CSS;
 - 1ª Revisão com base no primeiro capítulo do livro Clean Code;
 - 2ª Revisão com base no segundo capítulo do Clean Code;
-- Checkbox que oculta as mensagens enviadas.
+- Checkbox que oculta as mensagens enviadas;
 - Melhorar o CSS;
+- Não há mais envios de mensagens repetidas;
+- Para modificar ou acrescentar novas opções, basta alterar o conteúdo das variáveis (listaDeNumerosDosComandos, listaDeComandos, opcao1, opcao2, opcao3, opcao4, opcao5);
+- Checkbox que atualiza página;
 
 Próximos passos:
-- Verificar a possibilidade de adicionar check-box para abrir novas opções na tela;
 - Melhorar o CSS;
 - Botões de compartilhamento;
 - Novas opções disponíveis para a Section.
